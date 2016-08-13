@@ -11,7 +11,7 @@ const initialState = {
 export default function quizReducer(state = initialState, action) {
     switch (action.type) {
         case NEW_QUESTION:
-            return update(state, {{$add}})
+            return update(state, {{$add}}) //look at react update to complete
         case SWITCH_ACTIVE_QUESTION:
             return Object.assign({}, state, { activeQuestion: 0})
         default:

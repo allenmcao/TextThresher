@@ -12,11 +12,30 @@ export class QuizAccordion extends Component {
 		return(
 			{this.props.questions.map((question) => {
 	            return (
-	              <QuizQuestion key={question.id}
+	              <QuizQuestion 
+	              	key={question.id}
 	                question={question}
-	                onUpdate={this.onUpdate} />
-	            );
+	                />
+	            ); // NOT SURE IF STILL NEEDED AS PROP: onUpdate={this.onUpdate} 
           	})}
 		)
 	}
 }
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onNewQuestion: questions => {
+      dispatch(newQuestion(questions));
+    }
+  };
+}
+
+function mapStateToProps(state) {
+  return {};
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(QuizAccordion);

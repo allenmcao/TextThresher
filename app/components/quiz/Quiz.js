@@ -14,7 +14,7 @@ export class Quiz extends Component {
     render() {
         return(
             <div>
-                <QuizContext />
+                <QuizContext context={this.props.curContext} />
                 <QuizAccordion />
             </div>
         );
@@ -23,7 +23,7 @@ export class Quiz extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onNewQuestions: questions => {
+    onNewQuestion: questions => {
       dispatch(newQuestion(questions));
     }
   };
